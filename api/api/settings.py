@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'live_api',
-    'live_api.apps.LiveApiConfig'
     'corsheaders'
 ]
 

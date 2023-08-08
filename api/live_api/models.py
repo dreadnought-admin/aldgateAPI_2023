@@ -29,7 +29,7 @@ class Fish(models.Model):
         return f'{self.name}'
 
 class Chicken(models.Model):
-    name = models.Charfield(max_length=30)
+    name = models.CharField(max_length=30)
     price = models.FloatField(default=0, null=False)
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Snack(models.Model):
         return f'{self.name}'
 
 class Wing(models.Model):
-    kilos = name = models.CharField(max_length=30)
+    kilos = models.CharField(max_length=30)
     price = models.FloatField(default=0, null=False)
 
     def __str__(self):
