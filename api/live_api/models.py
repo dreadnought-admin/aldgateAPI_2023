@@ -55,7 +55,7 @@ class Wing(models.Model):
     price = models.FloatField(default=0, null=False)
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.kilos}'
 
 class Wrap(models.Model):
     name = models.CharField(max_length=30)
