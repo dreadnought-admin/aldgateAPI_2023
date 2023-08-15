@@ -1,19 +1,28 @@
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+from rest_framework.routers import routers
 from live_api import views
-from live_api.views import MenuItemViewSet, PackViewSet, ExtraViewSet
+from .views import *
 
-# router = DefaultRouter()
-# router.register(r'menu', MenuItemViewSet, basename='menu')
-# router.register(r'extras', ExtraViewSet, basename='extra')
-# router.register(r'packs', PackViewSet, basename='pack')
-# urlpatterns = router.urls
+router = routers.DefaultRouter()
+
+router.register(r'burgers', BurgerViewSet)
+router.register(r'chicken', ChickenViewSet)
+router.register(r'fish', FishViewSet)
+router.register(r'fries', FriesViewSet)
+router.register(r'snack', SnackViewSet)
+router.register(r'wings', WingViewSet)
+router.register(r'wraps', WrapViewSet)
+router.register(r'hotdogs', HotdogViewSet)
+router.register(r'sides', SideViewSet)
+router.register(r'specials', SpecialViewSet)
+router.register(r'tradpacks', TradPackViewSet)
+router.register(r'specialpacks', SpecialPackViewSet)
+router.register(r'extras', ExtraViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path("", views, name="home"),
-    path('menu/', MenuItemViewSet.as_view({'get': 'list'})),
-    path('extras/', ExtraViewSet.as_view({'get': 'list'})),
-    path('packs/', PackViewSet.as_view({'get': 'list'}))
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls'))
 ]
+
+
