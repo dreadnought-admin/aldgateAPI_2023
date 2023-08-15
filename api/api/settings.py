@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1pvtypvf47%)^+=t532_tzu%q=&3w8x&xs6fa+bz(xr*qb@5=#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['aldgate-api.onrender.com']
 
 # CORS 
 
