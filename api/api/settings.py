@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
+import os
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,19 +23,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1pvtypvf47%)^+=t532_tzu%q=&3w8x&xs6fa+bz(xr*qb@5=#'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['https://aldgate-api-dsec.onrender.com']
+ALLOWED_HOSTS = [os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")]
 
 # CORS 
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://aldgate-api-dsec.onrender.com'
+    'http://127.0.0.1:8000/'
 ]
+
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+
 
 
 # Application definition
@@ -126,11 +132,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
