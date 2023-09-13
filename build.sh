@@ -11,5 +11,4 @@ pip3 install whitenoise
 pip3 freeze > requirements.txt
 pip install -r requirements.txt
 pip3 install -r requirements.txt
-python api/manage.py collectstatic --no-input
 python api/manage.py migrate
