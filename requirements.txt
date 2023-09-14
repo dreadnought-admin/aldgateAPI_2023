@@ -21,7 +21,7 @@ distro-info
 dj-database-url
 Django
 django-cors-headers
-dbus-python
+
 django-filter
 django-mama-cas
 django-nextjs
