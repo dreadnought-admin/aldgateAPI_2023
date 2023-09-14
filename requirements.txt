@@ -31,7 +31,6 @@ filelock
 Flask
 frozenlist
 gunicorn
-gyp==0.1
 html5lib
 httplib2
 idna
