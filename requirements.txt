@@ -72,10 +72,10 @@ sheetsu
 shellingham
 six
 sqlparse
-# systemd-python
+systemd-python
 tomlkit
 typing_extensions
-ubuntu-advantage-tools
+# ubuntu-advantage-tools
 ufw
 unattended-upgrades
 urllib3
