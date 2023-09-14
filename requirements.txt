@@ -63,7 +63,6 @@ PyGObject
 PyJWT
 pylev
 pyparsing
-python-apt
 pytz
 PyYAML
 requests
